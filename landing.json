@@ -3,7 +3,7 @@
  "title": "I came to the US with nothing and built companies for immigrants. Now I want to build the next ones with you.",
  "intro": [
   "Hey, I'm Siam. Over fifteen years I've guided more than two hundred thousand students abroad, helped immigrants earn millions in US salaries, and run a fund for the ones who made it. Along the way I kept finding problems that deserve a company and don't have one.",
-  "These are those openings. Pick one, or bring yours. Tell me what you're great at — building or selling — and we put in the rest: capital, engineering or distribution, decades of wisdom, and our entire ecosystem behind you."
+  "These are those openings. Pick one, or bring yours. Tell me what you're great at — building or selling — and I put in the rest, with my three companies and their ecosystem behind you."
  ],
  "photo": "assets/siam.jpg",
  "photoAlt": "Siam Hossain",
@@ -30,16 +30,16 @@
  },
  "pillars": [
   {
-   "k": "Sixty bets we'd make",
-   "v": "Hand-picked from nearly two thousand by the demand behind them and by whether one of our companies already reaches the customer. Each is a one-pager on purpose; the full research comes once we're talking."
+   "k": "Sixty ideas",
+   "v": "Hand-picked from nearly two thousand by the demand behind them and by whether one of my companies already reaches the customer. One goes live each week as I write it up; the full research comes once we're talking."
   },
   {
    "k": "The match",
-   "v": "Every founder is missing a leg. Builders lack distribution; sellers lack a product. We map what you don't have and back you with it — capital, network, engineering or go-to-market. Whatever it takes."
+   "v": "Every founder is missing half. Builders lack distribution; sellers lack a product. I map what you don't have and back you with it. Whatever it takes."
   },
   {
    "k": "The company",
-   "v": "Co-founder, equity. Not an agency, not an accelerator. We form the US company, tackle the immigration and visa questions with you, and bring the team, the audience and the operating history."
+   "v": "Co-founder, equity. Not an agency, not an accelerator. I form the US company, work through the immigration and visa questions with you, and bring the team, the audience and fifteen years of running companies in these markets."
   }
  ],
  "whoTitle": "Who I'm looking for",
@@ -56,84 +56,62 @@
     "Have shipped something real, even if nobody bought it"
    ],
    "we": [
-    "Distribution — the customers, communities and channels our companies already reach",
-    "The first ten conversations, opened for you",
-    "Capital and a US company when it's time"
+    "Distribution — the customers, communities and channels my companies already reach",
+    "The first ten conversations, opened for you"
    ]
   },
   {
-   "name": "The Storyteller",
+   "name": "The Seller",
    "tag": "Sells",
-   "line": "A seller or a creator who moves people — with a pipeline, or with an audience that already listens.",
+   "line": "Someone who moves people — through a pipeline they've run, or an audience that already listens.",
    "you": [
     "Can sell anything to anyone, and prove it with a pipeline you've run",
-    "Or: make content people actually consume, with a distribution you already own",
+    "Or you make content people actually consume, with a distribution you already own",
     "Live inside a customer community and speak its language",
     "Comfortable charging money from day one"
    ],
    "we": [
     "Engineering — Algorizin's team builds the product while you sell",
-    "The operating playbook from companies that already sell to this audience",
-    "Capital and a US company when it's time"
+    "The operating playbook from companies that already sell to this audience"
    ]
   }
  ],
  "ideasTitle": "The ideas",
- "ideasIntro": "Sixty to start, more as we write them. They follow one life in three stages — arrive, rise, thrive — and each has a company of ours behind it that already reaches the people it serves. Titles are listed now; each one-pager goes live as it's written. Tap a stage.",
- "helpTitle": "The unfair advantages",
- "help": [
-  {
-   "k": "Engineering",
-   "v": "You sell, we build. Algorizin's delivery team ships the MVP to your spec."
-  },
-  {
-   "k": "Distribution",
-   "v": "220,000+ students guided abroad and $13M+ in immigrant salaries placed — an audience that already trusts us."
-  },
-  {
-   "k": "Operating history",
-   "v": "Fifteen years of running companies in these exact markets, and the mistakes already made."
-  },
-  {
-   "k": "Mentorship and strategy",
-   "v": "Weekly working sessions with me on strategy, pricing and hiring, for as long as it takes to find product-market fit."
-  }
- ],
+ "ideasIntro": "Sixty to start, one more written up each week. They follow one life in three stages — arrive, rise, thrive — and each stage has one of my companies behind it, already reaching the people it serves.",
  "stepsTitle": "How it works",
  "steps": [
   {
    "k": "Pick an idea, or bring yours",
-   "v": "Any one-pager above, or something you've seen that we haven't."
+   "v": "Any one-pager above, or something you've seen that I haven't."
   },
   {
-   "k": "Co-found with me",
-   "v": "Thirty minutes. Builder or storyteller, what you've shipped or sold, where you are in the world."
+   "k": "A thirty-minute call",
+   "v": "Builder or seller, what you've shipped or sold, where you are in the world."
   },
   {
-   "k": "We map the gaps",
-   "v": "I say plainly what you're missing and what we'd put in."
+   "k": "I map the gaps",
+   "v": "I say plainly what you're missing and what I'd put in."
   },
   {
    "k": "Ninety days to revenue",
-   "v": "Company formed, product or pipeline live, first revenue — all inside ninety days. Then we decide together how big it gets."
+   "v": "Your full commitment for ninety days. Company formed, product or pipeline live, first revenue. Then we decide together how big it gets."
   }
  ],
  "closeTitle": "Ready?",
  "closeText": "Thirty minutes, no deck needed. Bring what you've built or sold and the idea you can't stop thinking about.",
- "footer": "Requests for Co-founders is run by Siam Hossain and Algorizin, Inc. Ideas are shared as one-pagers on purpose; the research behind each is shared with people we start working with.",
- "matchTitle": "You bring one thing. We bring the rest.",
- "matchIntro": "A company needs someone who builds and someone who sells. Bring either one — we cover what's missing, and everything around it.",
+ "footer": "Requests for Co-founders is a project of Siam Hossain and Algorizin, Inc. Ideas are shared as one-pagers on purpose; the research behind each is shared with people we start working with.",
+ "matchTitle": "You bring one thing. I bring the rest.",
+ "matchIntro": "A company needs someone who builds and someone who sells. Bring either one. I cover what's missing, and everything around it.",
  "youBring": [
-  "The ability to build — a real product, shipped fast",
-  "Or the ability to sell — a pipeline you've run, or an audience that listens",
-  "Ninety days of full commitment"
+  "You build — real products, shipped fast",
+  "Or you sell — a pipeline you've run, or an audience that listens"
  ],
  "weBring": [
-  "A brand our audience has trusted for fifteen years",
-  "Our network and ecosystem — HigherStudyAbroad, Algorizin, XenosWealth",
+  "A brand 220,000 students and thousands of placed immigrants already trust",
+  "My three companies and their networks — HigherStudyAbroad, Algorizin, XenosWealth",
+  "Engineering or go-to-market, whichever you don't bring — Algorizin's team builds, or opens the first ten conversations",
   "Capital, when the numbers work",
   "A US company formed for you, with the immigration and visa questions handled",
-  "Engineering or go-to-market — whichever you don't bring",
-  "Decades of operating experience, and the mistakes already made"
+  "Fifteen years of operating experience, the mistakes already made, and weekly working sessions with me on strategy, pricing and hiring"
  ]
 }
