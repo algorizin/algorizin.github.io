@@ -1,0 +1,257 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"><style>
+:root{
+  --cloud:#FAF9F7; --ink:#241E33; --lilac:#EAE5F4; --royal:#3A0088;
+  --ink-secondary:#443F50; --ink-tertiary:#64606E;
+  --border-hairline:rgba(36,30,51,.08); --border-strong:#C4C2C6;
+  --disabled-fill:#F0EDF5; --lilac-soft:#F2EFF5; --royal-hover:#2E006D;
+  --error:#9B4747; --success:#3D7A5F; --warning:#8F6A2E;
+  --surface:var(--cloud); --text:var(--ink); --focus:var(--royal); --link:var(--royal); --tint:var(--lilac);
+  --shadow-1:0 1px 2px rgba(36,30,51,.06); --shadow-2:0 4px 16px rgba(36,30,51,.08);
+  --ease:cubic-bezier(.2,0,0,1);
+}
+/* dark mode per 2.6: Ink family surfaces, Cloud text, royal-light as the one sanctioned fifth color */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --surface:#17131F; --cloud:#17131F; --ink:#FAF9F7; --text:#FAF9F7;
+  --ink-secondary:rgba(250,249,247,.75); --ink-tertiary:rgba(250,249,247,.55);
+  --border-hairline:rgba(250,249,247,.10); --border-strong:rgba(250,249,247,.25);
+  --royal:#B09AF3; --royal-hover:#C4B3F7; --link:#B09AF3; --focus:#B09AF3;
+  --lilac:rgba(176,154,243,.14); --tint:rgba(176,154,243,.14); --lilac-soft:rgba(176,154,243,.08); --disabled-fill:rgba(250,249,247,.06);
+  --shadow-1:none; --shadow-2:none;}}
+:root[data-theme="dark"]{
+  --surface:#17131F; --cloud:#17131F; --ink:#FAF9F7; --text:#FAF9F7;
+  --ink-secondary:rgba(250,249,247,.75); --ink-tertiary:rgba(250,249,247,.55);
+  --border-hairline:rgba(250,249,247,.10); --border-strong:rgba(250,249,247,.25);
+  --royal:#B09AF3; --royal-hover:#C4B3F7; --link:#B09AF3; --focus:#B09AF3;
+  --lilac:rgba(176,154,243,.14); --tint:rgba(176,154,243,.14); --lilac-soft:rgba(176,154,243,.08); --disabled-fill:rgba(250,249,247,.06);
+  --shadow-1:none; --shadow-2:none;}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink-secondary);font-family:"Open Sans",ui-sans-serif,system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+a:hover{color:var(--royal-hover)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:8px}
+.wrap{max-width:720px;margin:0 auto;padding:24px 24px 96px}
+.wide{max-width:1040px}
+
+/* nav: Ink 600, no underline (1.5) */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:16px;margin-bottom:32px;border-bottom:1px solid var(--border-hairline)}
+.nav a,.nav b{font-weight:600;color:var(--text);text-decoration:none;font-size:15px}
+.nav a:hover{color:var(--text)}
+.nav .brand{display:flex;align-items:center;gap:10px}
+.nav .brand i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--royal)}
+
+.notice{background:var(--lilac);color:var(--text);border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.5;margin-bottom:24px}
+.notice b{font-weight:700}
+
+.label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-tertiary);margin:0 0 12px}
+.label.royal{color:var(--royal)}
+h1{font-size:44px;line-height:1.08;letter-spacing:-.025em;font-weight:700;color:var(--text);margin:0 0 16px;text-wrap:balance}
+.display h1{font-size:56px;line-height:1.05;letter-spacing:-.03em}
+.sub{font-size:24px;line-height:1.3;font-weight:600;color:var(--text);margin:0 0 24px}
+.one{font-size:20px;line-height:1.45;color:var(--ink-secondary);margin:0 0 24px}
+h2{font-size:24px;line-height:1.3;font-weight:600;color:var(--text);margin:48px 0 12px;letter-spacing:-.01em}
+h3{font-size:16px;font-weight:700;color:var(--text);margin:0 0 8px}
+p{margin:0 0 16px;max-width:64ch}
+.lead p{font-size:17px;line-height:1.65;color:var(--text)}
+.caption{font-size:13px;line-height:1.5;color:var(--ink-tertiary)}
+
+/* chips: radius 8, Lilac tint, Ink text */
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 32px}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:8px;font-size:13px;font-weight:600;
+  background:var(--lilac);color:var(--text)}
+.chip.ghost{background:transparent;border:1px solid var(--border-hairline);color:var(--ink-secondary)}
+/* status is functional text, never a fill (2.2) */
+.status{font-weight:700}
+.status.open{color:var(--success)}
+.status.in-progress{color:var(--warning)}
+.status.taken{color:var(--ink-tertiary)}
+
+/* scorecard: Royal on a Lilac track (2.8) — no reds or greens */
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 40px}
+.sc{padding:16px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.sc .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-tertiary)}
+.sc .v{font-size:18px;font-weight:700;color:var(--text);margin:6px 0 10px;line-height:1.2}
+.track{display:flex;gap:4px}
+.track i{flex:1;height:6px;border-radius:999px;background:var(--lilac)}
+.track i.on{background:var(--royal)}
+
+ul.shape{margin:0;padding:0;list-style:none;max-width:64ch}
+ul.shape li{position:relative;padding-left:24px;margin:0 0 12px;color:var(--text)}
+ul.shape li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:2px;background:var(--royal);border-radius:1px}
+
+/* signals: hairline list; sources as inline Royal links */
+.signal{padding:16px 0;border-top:1px solid var(--border-hairline)}
+.signal:first-of-type{border-top:0;padding-top:0}
+.signal .f{color:var(--text);font-size:16px;line-height:1.6}
+.signal .s{font-size:13px;color:var(--ink-tertiary);margin-top:4px}
+.signal .s a{font-weight:600}
+.signal .n{font-size:14px;color:var(--ink-tertiary);margin-top:4px}
+.unv{display:inline-flex;align-items:center;height:20px;padding:0 8px;margin-left:8px;border-radius:8px;
+  font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle;
+  color:var(--warning);border:1px solid var(--warning);background:rgba(143,106,46,.10)}
+
+/* why us: Lilac tinted section, Ink text (approved pairing) */
+.us{background:var(--lilac);border-radius:16px;padding:24px;margin-top:8px}
+.us .cos{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 12px}
+.us .cos span{font-weight:700;color:var(--text);font-size:14px}
+.us p{color:var(--text);margin:0 0 12px}
+.us ul{margin:0;padding-left:20px;color:var(--ink-secondary);font-size:15px;line-height:1.6}
+
+/* the ask: hairline card on Cloud, one Royal action */
+.ask{border:1px solid var(--border-hairline);border-radius:16px;padding:32px;margin-top:48px;background:var(--surface);box-shadow:var(--shadow-1)}
+.ask h2{margin:0 0 16px;font-size:36px;line-height:1.15;letter-spacing:-.01em;font-weight:700}
+.ask .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 24px}
+.ask ul{margin:0;padding-left:20px;font-size:15px;line-height:1.6;color:var(--ink-secondary)}
+.ask .terms{font-size:13px;color:var(--ink-tertiary);margin:0 0 20px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border-radius:12px;
+  font-size:15px;font-weight:600;letter-spacing:.01em;text-decoration:none;transition:background 150ms var(--ease),transform 150ms var(--ease)}
+.btn.primary{background:var(--royal);color:#FAF9F7}
+.btn.primary:hover{background:var(--royal-hover);color:#FAF9F7}
+.btn.primary:active{transform:scale(.98)}
+.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--border-strong)}
+.btn.secondary:hover{background:rgba(36,30,51,.04);color:var(--text)}
+:root[data-theme="dark"] .btn.primary,:root:not([data-theme="light"]) .btn.primary{color:#17131F}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn.primary{color:#FAF9F7}}
+.foot{margin-top:48px;padding-top:16px;border-top:1px solid var(--border-hairline);font-size:13px;line-height:1.5;color:var(--ink-tertiary)}
+
+/* landing */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:start;margin-bottom:32px}
+.hero.solo{grid-template-columns:minmax(0,1fr)}
+.card.draft{border-style:dashed;cursor:default}
+.card.draft:hover{border-color:var(--border-hairline);box-shadow:none}
+.status.draft{color:var(--ink-tertiary)}
+.hero .lead{max-width:64ch}
+.hero .lead p{font-size:18px;line-height:1.6;color:var(--text);margin:0 0 16px}
+.hero .lead p:first-child{font-size:19px}
+.portrait{width:220px;aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid var(--border-hairline);
+  background:var(--lilac);display:flex;align-items:center;justify-content:center;color:var(--ink-tertiary);font-size:13px;text-align:center;padding:16px}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 72px}
+.pf{padding:20px 20px 16px;border-radius:16px;background:var(--lilac)}
+.pf b{display:block;font-size:30px;line-height:1.1;letter-spacing:-.02em;color:var(--text);font-weight:700}
+.pf span{display:block;font-size:14px;line-height:1.45;color:var(--ink-secondary);margin-top:6px}
+.pf small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-tertiary);margin-top:10px}
+/* journey map: nine stops on one rail */
+.journey{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(9,1fr);gap:0;position:relative}
+.journey::before{content:"";position:absolute;left:5%;right:5%;top:11px;height:1px;background:var(--border-strong)}
+.stop{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 4px 8px;background:none;border:0;outline:0;box-shadow:none;font:inherit;cursor:pointer;color:var(--ink-secondary);text-align:center;border-radius:12px}
+.stop:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.stop i{width:22px;height:22px;border-radius:50%;background:var(--surface);border:2px solid var(--border-strong);position:relative;z-index:1;transition:border-color 150ms var(--ease),background 150ms var(--ease)}
+.stop b{font-size:13.5px;font-weight:700;color:var(--text)}
+.stop small{font-size:12px;color:var(--ink-tertiary);font-variant-numeric:tabular-nums}
+.stop:hover i{border-color:var(--ink)}
+.stop.on i{background:var(--royal);border-color:var(--royal)}
+.stop.on b{color:var(--royal)}
+.stop.empty b{color:var(--ink-tertiary)}
+.stop.empty i{border-style:dashed}
+.stop-thesis{font-size:15px;line-height:1.55;color:var(--ink-secondary);max-width:64ch;margin:0 0 16px;min-height:1.55em}
+.closing{border:1px solid var(--border-hairline);border-radius:16px;padding:32px;text-align:center;background:var(--surface);margin:0 0 32px}
+.closing h2{margin:0 0 8px;font-size:32px}
+.closing p{margin:0 auto 20px;font-size:16px;color:var(--ink-secondary)}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.portrait{width:160px}.proof{grid-template-columns:1fr}.journey{grid-template-columns:repeat(5,1fr);row-gap:20px}.journey::before{display:none}}
+@media (max-width:600px){.journey{grid-template-columns:repeat(3,1fr)}}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 72px}
+.pillar{padding:24px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.pillar h3{font-size:18px;margin:0 0 8px}
+.pillar p{font-size:15px;line-height:1.6;color:var(--ink-secondary);margin:0}
+.sect{margin:0 0 72px}
+.sect h2{margin:0 0 8px;font-size:36px;line-height:1.15;letter-spacing:-.01em;font-weight:700}
+.sect .intro-p{font-size:17px;line-height:1.6;color:var(--ink-secondary);max-width:64ch;margin:0 0 24px}
+.icps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.icp{padding:28px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface);display:flex;flex-direction:column;gap:16px}
+.icp .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.icp h3{font-size:28px;letter-spacing:-.015em;margin:0}
+.icp .line{font-size:16px;line-height:1.55;color:var(--text);margin:0}
+.icp h4{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-tertiary);margin:8px 0 8px}
+.icp ul{margin:0;padding-left:20px;font-size:15px;line-height:1.6;color:var(--ink-secondary)}
+.icp .we{background:var(--lilac);border-radius:12px;padding:16px 20px;margin-top:auto}
+.icp .we ul{color:var(--text)}
+.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tri{padding:24px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.tri.us{background:var(--lilac);border-color:transparent}
+.tri h3{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+.tri .who{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-tertiary);margin:0 0 10px}
+.tri.us .who{color:var(--royal)}
+.tri p{font-size:15px;line-height:1.6;color:var(--ink-secondary);margin:0}
+.tri.us p{color:var(--text)}
+.help{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px 32px}
+.help div{padding-top:16px;border-top:1px solid var(--border-hairline)}
+.help h3{font-size:16px;margin:0 0 4px}
+.help p{font-size:15px;line-height:1.6;color:var(--ink-secondary);margin:0}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{counter-increment:s;padding:20px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.step::before{content:counter(s,decimal-leading-zero);display:block;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--royal);margin-bottom:8px}
+.step h3{font-size:17px;margin:0 0 6px}
+.step p{font-size:14.5px;line-height:1.55;color:var(--ink-secondary);margin:0}
+@media (max-width:900px){.pillars,.triad,.steps{grid-template-columns:1fr 1fr}.icps{grid-template-columns:1fr}}
+@media (max-width:600px){.pillars,.triad,.steps{grid-template-columns:1fr}.sect h2{font-size:28px}}
+
+/* index */
+.intro{max-width:64ch;margin-bottom:56px}
+.intro p{font-size:18px;line-height:1.6;color:var(--text)}
+.theme{margin:0 0 48px}
+.theme h2{margin:0 0 4px;font-size:28px;letter-spacing:-.015em;font-weight:700}
+.theme .thesis{font-size:16px;color:var(--ink-tertiary);margin:0 0 16px;max-width:64ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--border-hairline);border-radius:16px;
+  background:var(--surface);color:inherit;text-decoration:none;font-weight:400;transition:border-color 150ms var(--ease),box-shadow 150ms var(--ease)}
+.card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-2);color:inherit}
+.card h3{font-size:20px;line-height:1.25;letter-spacing:-.01em;font-weight:700;margin:0}
+.card p{font-size:15px;line-height:1.55;color:var(--ink-secondary);margin:0}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:8px;font-size:13px}
+.card .track{width:72px}
+.card .track i{height:4px}
+.empty{border:1px dashed var(--border-strong);border-radius:16px;padding:20px;color:var(--ink-tertiary);font-size:14px}
+
+@media (max-width:640px){
+  .wrap{padding:16px 16px 64px}
+  h1{font-size:34px}.display h1{font-size:40px}h2{font-size:22px}.sub{font-size:20px}.one{font-size:18px}
+  .scores{grid-template-columns:1fr 1fr}.ask{padding:24px}.ask h2{font-size:28px}.ask .cols{grid-template-columns:1fr}
+  .btn{height:52px;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style><title>Open Ideas</title>
+<div class="wrap wide">
+<div class="nav"><span class="brand"><i></i><b>Open Ideas</b></span><span style="display:flex;gap:20px"><a href="#match">Match</a><a href="#who">Who</a><a href="#ideas">Ideas</a><a href="#how">How</a></span></div>
+
+
+<div class="hero display solo"><div><div class="label royal">Requests for founders</div><h1>I came to the US with nothing and built companies for immigrants. Now I want to build the next ones with you.</h1>
+<div class="lead"><p>Hey, I&#x27;m Siam. Over fifteen years I&#x27;ve guided more than two hundred thousand students abroad, helped immigrants earn millions in US salaries, and run a fund for the ones who made it. Along the way I kept finding problems that deserve a company and don&#x27;t have one.</p><p>These are those openings. Pick one, or bring yours. Tell me what you&#x27;re great at — building or selling — and we put in the rest: design, engineering or distribution, and my time.</p></div>
+<div class="actions"><a class="btn primary" href="https://cal.com/siamhossain/mentor?overlayCalendar=true" target="_blank" rel="noopener">Book a call</a></div></div>
+</div>
+
+<div class="proof"><div class="pf"><b>220,000+</b><span>students guided abroad</span><small>HigherStudyAbroad</small></div><div class="pf"><b>$13M+</b><span>in immigrant salaries</span><small>Algorizin</small></div><div class="pf"><b>A hedge fund</b><span>for immigrants who made it</span><small>XenosWealth</small></div></div>
+
+<div class="pillars"><div class="pillar"><h3>The openings</h3><p>Sixty ideas at launch, each a one-pager on purpose, chosen from a library of nearly two thousand by the demand behind them and by whether one of our companies already owns the audience. The first one-pagers are live; the rest are being written. The full research is shared once we&#x27;re talking.</p></div><div class="pillar"><h3>The match</h3><p>Every founder is missing a leg. Builders lack distribution; sellers lack a product. We map what you don&#x27;t have and bring it — design always, and either the engineering or the go-to-market.</p></div><div class="pillar"><h3>The terms</h3><p>Co-founder, equity. We&#x27;re not an agency and we&#x27;re not an accelerator. We&#x27;re the partner who already has the team, the audience and the operating history.</p></div></div>
+
+<div class="sect" id="match"><div class="label">The match</div><h2>Hacker, hipster, hustler</h2><p class="intro-p">Every company needs all three. We are the hipster — design, brand, the customer&#x27;s experience — on every idea. Then we add whichever of the other two you don&#x27;t bring.</p>
+<div class="triad"><div class="tri"><h3>Hacker</h3><div class="who">You, if you&#x27;re the Builder. Us, if you&#x27;re not.</div><p>Product, systems, shipping.</p></div><div class="tri us"><h3>Hipster</h3><div class="who">Always us.</div><p>Design, brand, experience — the Algorizin design system on day one.</p></div><div class="tri"><h3>Hustler</h3><div class="who">You, if you&#x27;re the Hustler. Us, if you&#x27;re not.</div><p>Sales, content, distribution, the first customers.</p></div></div></div>
+
+<div class="sect" id="who"><div class="label">Who</div><h2>Who I&#x27;m looking for</h2><p class="intro-p">Immigrant founders, solo founders ideally. International students and international founders get preference — I&#x27;ve been one, I&#x27;ve built for hundreds of thousands of them, and I know the constraints. Two profiles, and you only need to be one.</p>
+<div class="icps"><div class="icp"><div class="top"><h3>The Builder</h3><span class="chip">Hacker</span></div><p class="line">A 10× engineer who ships with AI tools at rocket speed and cares how it feels to use.</p><h4>You</h4><ul><li>Build end to end — backend, frontend, data, deploy — alone if you have to</li><li>Fluent with today&#x27;s AI coding tools; a working product in weeks, not quarters</li><li>Product-minded: you sweat the user experience, not just the architecture</li><li>Have shipped something real, even if nobody bought it</li></ul><div class="we"><h4>We bring</h4><ul><li>Design — every screen, in a system that already exists</li><li>Distribution — the customers, communities and channels our companies already reach</li><li>The first ten conversations, opened for you</li></ul></div></div><div class="icp"><div class="top"><h3>The Hustler</h3><span class="chip">Hustler</span></div><p class="line">A seller or a creator who can move people — and ideally already has an audience.</p><h4>You</h4><ul><li>Can sell anything to anyone, and prove it with a pipeline you&#x27;ve run</li><li>Or: make content people actually consume, with a distribution you already own</li><li>Live inside a customer community and speak its language</li><li>Comfortable charging money from day one</li></ul><div class="we"><h4>We bring</h4><ul><li>Design — every screen, in a system that already exists</li><li>Engineering — Algorizin&#x27;s team builds the product to your spec</li><li>The operating playbook from companies that already sell to this audience</li></ul></div></div></div></div>
+
+<div class="sect" id="ideas"><div class="label">Ideas</div><h2>The ideas</h2><p class="intro-p">Sixty to start, more as we write them. They follow one life in three stages — study, build, manage — and each stage has a company of ours behind it that already reaches the people it serves. Titles are listed now; each one-pager goes live as it&#x27;s written. Tap a stage.</p>
+<ol class="journey"><li><button class="stop on" data-stop="study" data-thesis="Abroad and on the way to the US, or already here as a student. Ideas for the people who are still learning, and for the schools, counselors and course creators who serve them."><i></i><b>Study</b><small>16 &middot; HigherStudyAbroad</small></button></li><li><button class="stop" data-stop="build" data-thesis="Graduated, early in a career, and in build mode — landing the job, rising, earning as a creator, starting the company. Ideas for them and for the employers who hire, place and pay them."><i></i><b>Build</b><small>25 &middot; Algorizin</small></button></li><li><button class="stop" data-stop="manage" data-thesis="Established, and now managing what was built. Ideas about money itself — investing, property, retirement, tax, credit — and the small firms and advisors around it."><i></i><b>Manage</b><small>20 &middot; XenosWealth</small></button></li></ol>
+<p class="stop-thesis" id="stop-thesis">Abroad and on the way to the US, or already here as a student. Ideas for the people who are still learning, and for the schools, counselors and course creators who serve them.</p>
+<div class="cards" data-panel="study"><div class="card draft"><h3>Student support bot that answers course questions automatically for online educators</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Financial aid guardrail for community college students</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Solo business finder matched to savings, obligations, and runway</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Verified skills platform that turns bootcamp graduates into trusted job candidates</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Interactive lesson builder for K-12 school teachers</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Email marketing agent for online course creators</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Feedback analytics platform that turns vague student comments into actionable course improvements for small educators ($5M ARR)</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><a class="card" href="ideas/customs-wait-times.html"><h3>Tell travelers how long the customs line is before they land</h3><p>Live customs and immigration wait predictions for the twenty busiest international airports — the one number every connecting passenger plans around.</p><div class="row"><span class="status open">open</span><div class="track" role="img" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div></a><div class="card draft"><h3>College retention tool that catches students before confusion turns to dropout</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Tax law app for client work during the day and exam prep at night</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>AI teaching assistant for coding bootcamp classrooms</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Marketing automation platform that generates leads for trade schools</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Parent portal platform for educational consultants</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Caseload management system built for school counselors</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Python training for professionals with repetitive day jobs</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Board exam practice with AI scoring for cosmetology schools</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div></div><div class="cards" data-panel="build" hidden><div class="card draft"><h3>Conversation practice tool for managers who dread firing people</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>AI workforce automation tracking for non-technical leaders</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Conversational analytics digest for non-technical founders</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Contact scanner that finds freelancers their first paying clients</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Offer builder for executives starting fractional careers</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Hiring planner for teams where AI replaced junior work</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Apprenticeship matching for trade school graduates</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div><div class="card draft"><h3>Audience request finder for creators selling products</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Freelancer Growth Academy: n8n Automation Mastery</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Feature-by-feature dev shop for SaaS founders</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Card-to-CRM pipeline for founders who forget to follow up</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>AI Workflow Marketplace for Non-Technical Founders ($100M+ ARR)</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Promote-from-within engine for multi-unit franchise operators</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>HR Platform that automates staffing for multi-unit franchises</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Campaign management platform for small creator agencies</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Monthly maintenance service for neglected SaaS products</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Client-ready proposals from markdown files</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Multi-channel dashboard for YouTube portfolio operators</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Micro-SaaS builder that ships working tools in 72 hours</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>TikTok Shop Fulfillment Platform that Automates Order Management for Scaling Creators ($10M ARR)</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Podcast ad bundling tool for small agencies pitching sponsors</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Portfolio page tool that builds trust before the first client</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Creator Mission Control: AI-powered growth platform for overwhelmed content creators ($20M ARR)</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Labor law alert system for companies with remote teams</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Financial bottleneck finder for women running service businesses</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div></div><div class="cards" data-panel="manage" hidden><div class="card draft"><h3>Rental tracking platform that automates compliance and prevents equipment loss for DME shops ($2M+ ARR)</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Burn rate dashboard for small homebuilders</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Bookkeeping automation app for one-person accounting firms</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Divorce document checker that keeps family law cases moving</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Document-to-tax-software pipeline for independent accountants</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Combined property + business scoring for commercial investors</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Tenant policy monitor for commercial property operators</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Post-divorce mortgage tool for requalifying alone</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Done-for-you submissions processing service that turns messy insurance docs into clean quotes for wholesale brokers</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Error scanner for bookkeeping firms running automated invoices</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Mortgage assumption workflow from application to closing</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Two-year-ahead neighborhood map for real estate investors</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Pension primer for employees and the advisors explaining them</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Closing cost watchdog for first-time home buyers</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Deadline tracking service for landlords managing rental licenses</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Retirement Plan Admin That Texts You When the IRS Changes the Rules</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>ESG Reporting Platform that Automates Compliance for Investment Managers ($5M+ ARR)</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Refund recovery tool for small importers who overpaid on tariffs</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Last-mile trust funding for estate planning firms</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div><div class="card draft"><h3>Workplace injury prediction tool for insurance carriers</h3><p class="caption">One-pager being written.</p><div class="row"><span class="status draft">coming</span><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div></div></div>
+
+<div class="sect" id="how"><div class="label">What we put in</div><h2>What we put in</h2><div class="help"><div><h3>Design</h3><p>A complete design system and the people who use it. Your product looks finished before it is.</p></div><div><h3>Engineering</h3><p>Algorizin&#x27;s delivery team for the MVP when the founder is the seller.</p></div><div><h3>Distribution</h3><p>HigherStudyAbroad&#x27;s student community, Algorizin&#x27;s clients, XenosWealth&#x27;s members — whichever the idea needs.</p></div><div><h3>Operating history</h3><p>Fifteen years of running companies in these exact markets, and the mistakes already made.</p></div><div><h3>Time</h3><p>Me, weekly, for as long as it takes to find product-market fit.</p></div></div></div>
+
+<div class="sect"><div class="label">Process</div><h2>How it works</h2><div class="steps"><div class="step"><h3>Pick an idea, or bring yours</h3><p>Any one-pager above, or something you&#x27;ve seen that we haven&#x27;t.</p></div><div class="step"><h3>Book a call</h3><p>Thirty minutes. Builder or Hustler, what you&#x27;ve shipped or sold, where you are in the world.</p></div><div class="step"><h3>We map the gaps</h3><p>I say plainly what you&#x27;re missing and what we&#x27;d put in.</p></div><div class="step"><h3>Ninety days</h3><p>Design in week one. A product or a pipeline by week twelve. Then we decide together whether it&#x27;s a company.</p></div></div></div>
+
+<div class="closing"><h2>Ready?</h2><p>Thirty minutes, no deck needed. Bring what you&#x27;ve built or sold and the idea you can&#x27;t stop thinking about.</p>
+<a class="btn secondary" href="https://cal.com/siamhossain/mentor?overlayCalendar=true" target="_blank" rel="noopener">Book a call</a></div>
+
+<div class="foot">Open Ideas is run by Siam Hossain and Algorizin, Inc. Ideas are shared as one-pagers on purpose; the research behind each is shared with people we start working with.</div>
+</div>
+<script>
+// the journey map: one stop active at a time, its ideas shown below
+document.querySelectorAll('.stop').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.stop').forEach(x => x.classList.toggle('on', x === b));
+  document.querySelectorAll('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== b.dataset.stop);
+  document.getElementById('stop-thesis').textContent = b.dataset.thesis;
+}));
+</script></html>

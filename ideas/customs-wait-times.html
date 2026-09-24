@@ -1,0 +1,239 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"><style>
+:root{
+  --cloud:#FAF9F7; --ink:#241E33; --lilac:#EAE5F4; --royal:#3A0088;
+  --ink-secondary:#443F50; --ink-tertiary:#64606E;
+  --border-hairline:rgba(36,30,51,.08); --border-strong:#C4C2C6;
+  --disabled-fill:#F0EDF5; --lilac-soft:#F2EFF5; --royal-hover:#2E006D;
+  --error:#9B4747; --success:#3D7A5F; --warning:#8F6A2E;
+  --surface:var(--cloud); --text:var(--ink); --focus:var(--royal); --link:var(--royal); --tint:var(--lilac);
+  --shadow-1:0 1px 2px rgba(36,30,51,.06); --shadow-2:0 4px 16px rgba(36,30,51,.08);
+  --ease:cubic-bezier(.2,0,0,1);
+}
+/* dark mode per 2.6: Ink family surfaces, Cloud text, royal-light as the one sanctioned fifth color */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --surface:#17131F; --cloud:#17131F; --ink:#FAF9F7; --text:#FAF9F7;
+  --ink-secondary:rgba(250,249,247,.75); --ink-tertiary:rgba(250,249,247,.55);
+  --border-hairline:rgba(250,249,247,.10); --border-strong:rgba(250,249,247,.25);
+  --royal:#B09AF3; --royal-hover:#C4B3F7; --link:#B09AF3; --focus:#B09AF3;
+  --lilac:rgba(176,154,243,.14); --tint:rgba(176,154,243,.14); --lilac-soft:rgba(176,154,243,.08); --disabled-fill:rgba(250,249,247,.06);
+  --shadow-1:none; --shadow-2:none;}}
+:root[data-theme="dark"]{
+  --surface:#17131F; --cloud:#17131F; --ink:#FAF9F7; --text:#FAF9F7;
+  --ink-secondary:rgba(250,249,247,.75); --ink-tertiary:rgba(250,249,247,.55);
+  --border-hairline:rgba(250,249,247,.10); --border-strong:rgba(250,249,247,.25);
+  --royal:#B09AF3; --royal-hover:#C4B3F7; --link:#B09AF3; --focus:#B09AF3;
+  --lilac:rgba(176,154,243,.14); --tint:rgba(176,154,243,.14); --lilac-soft:rgba(176,154,243,.08); --disabled-fill:rgba(250,249,247,.06);
+  --shadow-1:none; --shadow-2:none;}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink-secondary);font-family:"Open Sans",ui-sans-serif,system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+a:hover{color:var(--royal-hover)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:8px}
+.wrap{max-width:720px;margin:0 auto;padding:24px 24px 96px}
+.wide{max-width:1040px}
+
+/* nav: Ink 600, no underline (1.5) */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:16px;margin-bottom:32px;border-bottom:1px solid var(--border-hairline)}
+.nav a,.nav b{font-weight:600;color:var(--text);text-decoration:none;font-size:15px}
+.nav a:hover{color:var(--text)}
+.nav .brand{display:flex;align-items:center;gap:10px}
+.nav .brand i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--royal)}
+
+.notice{background:var(--lilac);color:var(--text);border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.5;margin-bottom:24px}
+.notice b{font-weight:700}
+
+.label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-tertiary);margin:0 0 12px}
+.label.royal{color:var(--royal)}
+h1{font-size:44px;line-height:1.08;letter-spacing:-.025em;font-weight:700;color:var(--text);margin:0 0 16px;text-wrap:balance}
+.display h1{font-size:56px;line-height:1.05;letter-spacing:-.03em}
+.sub{font-size:24px;line-height:1.3;font-weight:600;color:var(--text);margin:0 0 24px}
+.one{font-size:20px;line-height:1.45;color:var(--ink-secondary);margin:0 0 24px}
+h2{font-size:24px;line-height:1.3;font-weight:600;color:var(--text);margin:48px 0 12px;letter-spacing:-.01em}
+h3{font-size:16px;font-weight:700;color:var(--text);margin:0 0 8px}
+p{margin:0 0 16px;max-width:64ch}
+.lead p{font-size:17px;line-height:1.65;color:var(--text)}
+.caption{font-size:13px;line-height:1.5;color:var(--ink-tertiary)}
+
+/* chips: radius 8, Lilac tint, Ink text */
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 32px}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:8px;font-size:13px;font-weight:600;
+  background:var(--lilac);color:var(--text)}
+.chip.ghost{background:transparent;border:1px solid var(--border-hairline);color:var(--ink-secondary)}
+/* status is functional text, never a fill (2.2) */
+.status{font-weight:700}
+.status.open{color:var(--success)}
+.status.in-progress{color:var(--warning)}
+.status.taken{color:var(--ink-tertiary)}
+
+/* scorecard: Royal on a Lilac track (2.8) — no reds or greens */
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 40px}
+.sc{padding:16px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.sc .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-tertiary)}
+.sc .v{font-size:18px;font-weight:700;color:var(--text);margin:6px 0 10px;line-height:1.2}
+.track{display:flex;gap:4px}
+.track i{flex:1;height:6px;border-radius:999px;background:var(--lilac)}
+.track i.on{background:var(--royal)}
+
+ul.shape{margin:0;padding:0;list-style:none;max-width:64ch}
+ul.shape li{position:relative;padding-left:24px;margin:0 0 12px;color:var(--text)}
+ul.shape li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:2px;background:var(--royal);border-radius:1px}
+
+/* signals: hairline list; sources as inline Royal links */
+.signal{padding:16px 0;border-top:1px solid var(--border-hairline)}
+.signal:first-of-type{border-top:0;padding-top:0}
+.signal .f{color:var(--text);font-size:16px;line-height:1.6}
+.signal .s{font-size:13px;color:var(--ink-tertiary);margin-top:4px}
+.signal .s a{font-weight:600}
+.signal .n{font-size:14px;color:var(--ink-tertiary);margin-top:4px}
+.unv{display:inline-flex;align-items:center;height:20px;padding:0 8px;margin-left:8px;border-radius:8px;
+  font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle;
+  color:var(--warning);border:1px solid var(--warning);background:rgba(143,106,46,.10)}
+
+/* why us: Lilac tinted section, Ink text (approved pairing) */
+.us{background:var(--lilac);border-radius:16px;padding:24px;margin-top:8px}
+.us .cos{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 12px}
+.us .cos span{font-weight:700;color:var(--text);font-size:14px}
+.us p{color:var(--text);margin:0 0 12px}
+.us ul{margin:0;padding-left:20px;color:var(--ink-secondary);font-size:15px;line-height:1.6}
+
+/* the ask: hairline card on Cloud, one Royal action */
+.ask{border:1px solid var(--border-hairline);border-radius:16px;padding:32px;margin-top:48px;background:var(--surface);box-shadow:var(--shadow-1)}
+.ask h2{margin:0 0 16px;font-size:36px;line-height:1.15;letter-spacing:-.01em;font-weight:700}
+.ask .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 24px}
+.ask ul{margin:0;padding-left:20px;font-size:15px;line-height:1.6;color:var(--ink-secondary)}
+.ask .terms{font-size:13px;color:var(--ink-tertiary);margin:0 0 20px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border-radius:12px;
+  font-size:15px;font-weight:600;letter-spacing:.01em;text-decoration:none;transition:background 150ms var(--ease),transform 150ms var(--ease)}
+.btn.primary{background:var(--royal);color:#FAF9F7}
+.btn.primary:hover{background:var(--royal-hover);color:#FAF9F7}
+.btn.primary:active{transform:scale(.98)}
+.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--border-strong)}
+.btn.secondary:hover{background:rgba(36,30,51,.04);color:var(--text)}
+:root[data-theme="dark"] .btn.primary,:root:not([data-theme="light"]) .btn.primary{color:#17131F}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn.primary{color:#FAF9F7}}
+.foot{margin-top:48px;padding-top:16px;border-top:1px solid var(--border-hairline);font-size:13px;line-height:1.5;color:var(--ink-tertiary)}
+
+/* landing */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:start;margin-bottom:32px}
+.hero.solo{grid-template-columns:minmax(0,1fr)}
+.card.draft{border-style:dashed;cursor:default}
+.card.draft:hover{border-color:var(--border-hairline);box-shadow:none}
+.status.draft{color:var(--ink-tertiary)}
+.hero .lead{max-width:64ch}
+.hero .lead p{font-size:18px;line-height:1.6;color:var(--text);margin:0 0 16px}
+.hero .lead p:first-child{font-size:19px}
+.portrait{width:220px;aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid var(--border-hairline);
+  background:var(--lilac);display:flex;align-items:center;justify-content:center;color:var(--ink-tertiary);font-size:13px;text-align:center;padding:16px}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 72px}
+.pf{padding:20px 20px 16px;border-radius:16px;background:var(--lilac)}
+.pf b{display:block;font-size:30px;line-height:1.1;letter-spacing:-.02em;color:var(--text);font-weight:700}
+.pf span{display:block;font-size:14px;line-height:1.45;color:var(--ink-secondary);margin-top:6px}
+.pf small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-tertiary);margin-top:10px}
+/* journey map: nine stops on one rail */
+.journey{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(9,1fr);gap:0;position:relative}
+.journey::before{content:"";position:absolute;left:5%;right:5%;top:11px;height:1px;background:var(--border-strong)}
+.stop{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 4px 8px;background:none;border:0;outline:0;box-shadow:none;font:inherit;cursor:pointer;color:var(--ink-secondary);text-align:center;border-radius:12px}
+.stop:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.stop i{width:22px;height:22px;border-radius:50%;background:var(--surface);border:2px solid var(--border-strong);position:relative;z-index:1;transition:border-color 150ms var(--ease),background 150ms var(--ease)}
+.stop b{font-size:13.5px;font-weight:700;color:var(--text)}
+.stop small{font-size:12px;color:var(--ink-tertiary);font-variant-numeric:tabular-nums}
+.stop:hover i{border-color:var(--ink)}
+.stop.on i{background:var(--royal);border-color:var(--royal)}
+.stop.on b{color:var(--royal)}
+.stop.empty b{color:var(--ink-tertiary)}
+.stop.empty i{border-style:dashed}
+.stop-thesis{font-size:15px;line-height:1.55;color:var(--ink-secondary);max-width:64ch;margin:0 0 16px;min-height:1.55em}
+.closing{border:1px solid var(--border-hairline);border-radius:16px;padding:32px;text-align:center;background:var(--surface);margin:0 0 32px}
+.closing h2{margin:0 0 8px;font-size:32px}
+.closing p{margin:0 auto 20px;font-size:16px;color:var(--ink-secondary)}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.portrait{width:160px}.proof{grid-template-columns:1fr}.journey{grid-template-columns:repeat(5,1fr);row-gap:20px}.journey::before{display:none}}
+@media (max-width:600px){.journey{grid-template-columns:repeat(3,1fr)}}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 72px}
+.pillar{padding:24px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.pillar h3{font-size:18px;margin:0 0 8px}
+.pillar p{font-size:15px;line-height:1.6;color:var(--ink-secondary);margin:0}
+.sect{margin:0 0 72px}
+.sect h2{margin:0 0 8px;font-size:36px;line-height:1.15;letter-spacing:-.01em;font-weight:700}
+.sect .intro-p{font-size:17px;line-height:1.6;color:var(--ink-secondary);max-width:64ch;margin:0 0 24px}
+.icps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.icp{padding:28px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface);display:flex;flex-direction:column;gap:16px}
+.icp .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.icp h3{font-size:28px;letter-spacing:-.015em;margin:0}
+.icp .line{font-size:16px;line-height:1.55;color:var(--text);margin:0}
+.icp h4{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-tertiary);margin:8px 0 8px}
+.icp ul{margin:0;padding-left:20px;font-size:15px;line-height:1.6;color:var(--ink-secondary)}
+.icp .we{background:var(--lilac);border-radius:12px;padding:16px 20px;margin-top:auto}
+.icp .we ul{color:var(--text)}
+.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tri{padding:24px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.tri.us{background:var(--lilac);border-color:transparent}
+.tri h3{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+.tri .who{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-tertiary);margin:0 0 10px}
+.tri.us .who{color:var(--royal)}
+.tri p{font-size:15px;line-height:1.6;color:var(--ink-secondary);margin:0}
+.tri.us p{color:var(--text)}
+.help{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px 32px}
+.help div{padding-top:16px;border-top:1px solid var(--border-hairline)}
+.help h3{font-size:16px;margin:0 0 4px}
+.help p{font-size:15px;line-height:1.6;color:var(--ink-secondary);margin:0}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{counter-increment:s;padding:20px;border:1px solid var(--border-hairline);border-radius:16px;background:var(--surface)}
+.step::before{content:counter(s,decimal-leading-zero);display:block;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--royal);margin-bottom:8px}
+.step h3{font-size:17px;margin:0 0 6px}
+.step p{font-size:14.5px;line-height:1.55;color:var(--ink-secondary);margin:0}
+@media (max-width:900px){.pillars,.triad,.steps{grid-template-columns:1fr 1fr}.icps{grid-template-columns:1fr}}
+@media (max-width:600px){.pillars,.triad,.steps{grid-template-columns:1fr}.sect h2{font-size:28px}}
+
+/* index */
+.intro{max-width:64ch;margin-bottom:56px}
+.intro p{font-size:18px;line-height:1.6;color:var(--text)}
+.theme{margin:0 0 48px}
+.theme h2{margin:0 0 4px;font-size:28px;letter-spacing:-.015em;font-weight:700}
+.theme .thesis{font-size:16px;color:var(--ink-tertiary);margin:0 0 16px;max-width:64ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--border-hairline);border-radius:16px;
+  background:var(--surface);color:inherit;text-decoration:none;font-weight:400;transition:border-color 150ms var(--ease),box-shadow 150ms var(--ease)}
+.card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-2);color:inherit}
+.card h3{font-size:20px;line-height:1.25;letter-spacing:-.01em;font-weight:700;margin:0}
+.card p{font-size:15px;line-height:1.55;color:var(--ink-secondary);margin:0}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:8px;font-size:13px}
+.card .track{width:72px}
+.card .track i{height:4px}
+.empty{border:1px dashed var(--border-strong);border-radius:16px;padding:20px;color:var(--ink-tertiary);font-size:14px}
+
+@media (max-width:640px){
+  .wrap{padding:16px 16px 64px}
+  h1{font-size:34px}.display h1{font-size:40px}h2{font-size:22px}.sub{font-size:20px}.one{font-size:18px}
+  .scores{grid-template-columns:1fr 1fr}.ask{padding:24px}.ask h2{font-size:28px}.ask .cols{grid-template-columns:1fr}
+  .btn{height:52px;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style><title>Tell travelers how long the customs line is before they land</title>
+<div class="wrap">
+<div class="nav"><a class="brand" href="../index.html"><i></i>Open Ideas</a><a href="../index.html">All ideas</a></div>
+
+
+<div class="label royal">Study &middot; HigherStudyAbroad</div>
+<h1>Tell travelers how long the customs line is before they land</h1>
+<p class="one">Live customs and immigration wait predictions for the twenty busiest international airports — the one number every connecting passenger plans around.</p>
+<div class="meta"><span class="chip ghost status open">open</span><span class="chip">B2C</span><span class="chip">Mobile app</span><span class="chip">Crowdsourced data</span><span class="chip">Two-week MVP</span><span class="chip">Travel</span></div>
+<div class="scores"><div class="sc"><div class="k">timing</div><div class="v">Now</div><div class="track" role="img" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div class="sc"><div class="k">pain</div><div class="v">High</div><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div><div class="sc"><div class="k">opportunity</div><div class="v">Strong</div><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div><div class="sc"><div class="k">feasibility</div><div class="v">Easy</div><div class="track" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
+<div class="lead"><p>I have flown Dhaka to New York more times than I can count, and I have sent thousands of students through the same gates. The security line has a published wait time. The customs line — the one that actually decides whether you make the connection — has nothing. Fifteen minutes or three hours at the same airport, and you find out when you get there.</p><p>Airports won&#x27;t fix this; the queue is a federal agency&#x27;s problem, not theirs. Airlines won&#x27;t; they would rather you not know. So the number has to come from the passengers themselves: people in the line telling people in the air, with flight schedules filling the gaps. That is a small, focused product with a very large, very stressed audience.</p></div>
+<h2>Why now</h2><p>International arrivals are back above pre-2020 volumes and still climbing, while border staffing has not kept pace — so the swings are getting worse, not better. Crowdsourced timing apps have already trained travelers to check-in and share (Waze for roads, Flighty for gates). The behaviour exists; nobody has pointed it at the customs hall.</p>
+<h2>Who it's for</h2><p>International travelers with a connection to make — frequent fliers first, then families, then the students and workers we already serve.</p>
+<h2>What gets built</h2><ul class="shape"><li>One number per airport, per hour: predicted customs wait, with confidence.</li><li>Check-in from the line takes one tap; flight arrival schedules fill in when the crowd is thin.</li><li>Free to look, a few dollars a month for alerts and connection-risk warnings.</li><li>Later: sell the feed to airlines and travel apps that would rather embed it than build it.</li></ul>
+<h2>What we're seeing</h2><div class="signal"><div class="f">CBP publishes customs wait times as historical hourly averages by airport and terminal — useful for planning a trip, useless for the flight you are on.</div><div class="s">Source: <a href="https://awt.cbp.gov/" target="_blank" rel="noopener">U.S. Customs and Border Protection, Airport Wait Times</a></div><div class="n">The official data stops exactly where this product starts.</div></div><div class="signal"><div class="f">CBP&#x27;s published figures cover Passport Control only — not baggage claim, not the walk to the connection. The number a traveler actually needs is longer than the one that exists.</div><div class="s">Source: <a href="https://awt.cbp.gov/" target="_blank" rel="noopener">U.S. Customs and Border Protection, Airport Wait Times</a></div></div>
+<h2>Why us</h2>
+<div class="us"><div class="cos"><span>HigherStudyAbroad</span><span>Algorizin</span></div><p>HigherStudyAbroad puts thousands of students through international arrivals every intake — a ready first crowd for check-ins and the exact people who cannot afford to miss a connection. Algorizin&#x27;s team can build the prediction model and the app; this is a two-week MVP, not a research project.</p><ul><li>HSA student community as the first thousand check-ins</li><li>Algorizin engineering for model, app and data pipeline</li><li>Existing relationships with the airlines and agents students fly with</li></ul></div>
+<div class="ask"><div class="label">Looking for a co-founder</div><h2>Want to build this?</h2>
+<div class="cols"><div><h3>You bring</h3><ul><li>Own the product and the crowdsourcing loop</li><li>Live in the traveler communities and get the first ten airports to critical mass</li><li>Full-time within 90 days of a yes</li></ul></div>
+<div><h3>We put in</h3><ul><li>Algorizin builds the MVP</li><li>HSA seeds the first users</li><li>Siam&#x27;s time weekly and the network behind five companies</li></ul></div></div>
+<div class="terms">Terms: equity</div>
+<div class="actions"><a class="btn primary" href="https://cal.com/siamhossain/mentor?overlayCalendar=true" target="_blank" rel="noopener">Book a call</a><a class="btn secondary" href="../index.html">See all ideas</a></div></div>
+<div class="foot">Published 2026-09-19. The full research behind this idea is shared with people we start working with.</div>
+</div></html>

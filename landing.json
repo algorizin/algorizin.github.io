@@ -1,0 +1,148 @@
+{
+ "label": "Requests for founders",
+ "title": "I came to the US with nothing and built companies for immigrants. Now I want to build the next ones with you.",
+ "intro": [
+  "Hey, I'm Siam. Over fifteen years I've guided more than two hundred thousand students abroad, helped immigrants earn millions in US salaries, and run a fund for the ones who made it. Along the way I kept finding problems that deserve a company and don't have one.",
+  "These are those openings. Pick one, or bring yours. Tell me what you're great at — building or selling — and we put in the rest: design, engineering or distribution, and my time."
+ ],
+ "photo": "assets/siam.jpg",
+ "photoAlt": "Siam Hossain",
+ "proof": [
+  {
+   "n": "220,000+",
+   "k": "students guided abroad",
+   "company": "HigherStudyAbroad"
+  },
+  {
+   "n": "$13M+",
+   "k": "in immigrant salaries",
+   "company": "Algorizin"
+  },
+  {
+   "n": "A hedge fund",
+   "k": "for immigrants who made it",
+   "company": "XenosWealth"
+  }
+ ],
+ "primaryCta": {
+  "label": "Book a call",
+  "href": "https://cal.com/siamhossain/mentor?overlayCalendar=true"
+ },
+ "pillars": [
+  {
+   "k": "The openings",
+   "v": "Sixty ideas at launch, each a one-pager on purpose, chosen from a library of nearly two thousand by the demand behind them and by whether one of our companies already owns the audience. The first one-pagers are live; the rest are being written. The full research is shared once we're talking."
+  },
+  {
+   "k": "The match",
+   "v": "Every founder is missing a leg. Builders lack distribution; sellers lack a product. We map what you don't have and bring it — design always, and either the engineering or the go-to-market."
+  },
+  {
+   "k": "The terms",
+   "v": "Co-founder, equity. We're not an agency and we're not an accelerator. We're the partner who already has the team, the audience and the operating history."
+  }
+ ],
+ "triadTitle": "Hacker, hipster, hustler",
+ "triadIntro": "Every company needs all three. We are the hipster — design, brand, the customer's experience — on every idea. Then we add whichever of the other two you don't bring.",
+ "triad": [
+  {
+   "name": "Hacker",
+   "who": "You, if you're the Builder. Us, if you're not.",
+   "what": "Product, systems, shipping."
+  },
+  {
+   "name": "Hipster",
+   "who": "Always us.",
+   "what": "Design, brand, experience — the Algorizin design system on day one.",
+   "us": true
+  },
+  {
+   "name": "Hustler",
+   "who": "You, if you're the Hustler. Us, if you're not.",
+   "what": "Sales, content, distribution, the first customers."
+  }
+ ],
+ "whoTitle": "Who I'm looking for",
+ "whoIntro": "Immigrant founders, solo founders ideally. International students and international founders get preference — I've been one, I've built for hundreds of thousands of them, and I know the constraints. Two profiles, and you only need to be one.",
+ "icps": [
+  {
+   "name": "The Builder",
+   "tag": "Hacker",
+   "line": "A 10× engineer who ships with AI tools at rocket speed and cares how it feels to use.",
+   "you": [
+    "Build end to end — backend, frontend, data, deploy — alone if you have to",
+    "Fluent with today's AI coding tools; a working product in weeks, not quarters",
+    "Product-minded: you sweat the user experience, not just the architecture",
+    "Have shipped something real, even if nobody bought it"
+   ],
+   "we": [
+    "Design — every screen, in a system that already exists",
+    "Distribution — the customers, communities and channels our companies already reach",
+    "The first ten conversations, opened for you"
+   ]
+  },
+  {
+   "name": "The Hustler",
+   "tag": "Hustler",
+   "line": "A seller or a creator who can move people — and ideally already has an audience.",
+   "you": [
+    "Can sell anything to anyone, and prove it with a pipeline you've run",
+    "Or: make content people actually consume, with a distribution you already own",
+    "Live inside a customer community and speak its language",
+    "Comfortable charging money from day one"
+   ],
+   "we": [
+    "Design — every screen, in a system that already exists",
+    "Engineering — Algorizin's team builds the product to your spec",
+    "The operating playbook from companies that already sell to this audience"
+   ]
+  }
+ ],
+ "ideasTitle": "The ideas",
+ "ideasIntro": "Sixty to start, more as we write them. They follow one life in three stages — study, build, manage — and each stage has a company of ours behind it that already reaches the people it serves. Titles are listed now; each one-pager goes live as it's written. Tap a stage.",
+ "helpTitle": "What we put in",
+ "help": [
+  {
+   "k": "Design",
+   "v": "A complete design system and the people who use it. Your product looks finished before it is."
+  },
+  {
+   "k": "Engineering",
+   "v": "Algorizin's delivery team for the MVP when the founder is the seller."
+  },
+  {
+   "k": "Distribution",
+   "v": "HigherStudyAbroad's student community, Algorizin's clients, XenosWealth's members — whichever the idea needs."
+  },
+  {
+   "k": "Operating history",
+   "v": "Fifteen years of running companies in these exact markets, and the mistakes already made."
+  },
+  {
+   "k": "Time",
+   "v": "Me, weekly, for as long as it takes to find product-market fit."
+  }
+ ],
+ "stepsTitle": "How it works",
+ "steps": [
+  {
+   "k": "Pick an idea, or bring yours",
+   "v": "Any one-pager above, or something you've seen that we haven't."
+  },
+  {
+   "k": "Book a call",
+   "v": "Thirty minutes. Builder or Hustler, what you've shipped or sold, where you are in the world."
+  },
+  {
+   "k": "We map the gaps",
+   "v": "I say plainly what you're missing and what we'd put in."
+  },
+  {
+   "k": "Ninety days",
+   "v": "Design in week one. A product or a pipeline by week twelve. Then we decide together whether it's a company."
+  }
+ ],
+ "closeTitle": "Ready?",
+ "closeText": "Thirty minutes, no deck needed. Bring what you've built or sold and the idea you can't stop thinking about.",
+ "footer": "Open Ideas is run by Siam Hossain and Algorizin, Inc. Ideas are shared as one-pagers on purpose; the research behind each is shared with people we start working with."
+}
