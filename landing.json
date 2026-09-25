@@ -3,7 +3,7 @@
  "title": "I came to the US with nothing and built companies for immigrants. Now I want to build the next ones with you.",
  "intro": [
   "Hey, I'm Siam. Over fifteen years I've guided more than two hundred thousand students abroad, helped immigrants earn millions in US salaries, and run a fund for the ones who made it. Along the way I kept finding problems that deserve a company and don't have one.",
-  "These are those openings. Pick one, or bring yours. Tell me what you're great at — building or selling — and I put in the rest, with my three companies and their ecosystem behind you."
+  "These are those openings. Pick one, or bring yours. Tell me what you're great at, building or selling, and I put in the rest, with my three companies and their ecosystem behind you."
  ],
  "photo": "assets/siam.jpg",
  "photoAlt": "Siam Hossain",
@@ -43,27 +43,27 @@
   }
  ],
  "whoTitle": "Who I'm looking for",
- "whoIntro": "Immigrant founders, solo founders ideally. International students and international founders get preference — I've been one, I've built for hundreds of thousands of them, and I know the constraints. There are two types of founder, and you only need to be one.",
+ "whoIntro": "Immigrant founders, solo founders ideally. International students and international founders get preference. I've been one, I've built for hundreds of thousands of them, and I know the constraints. There are two types of founder, and you only need to be one.",
  "icps": [
   {
    "name": "The Builder",
    "tag": "Builds",
    "line": "A 10× engineer who ships with AI tools at rocket speed and cares how it feels to use.",
    "you": [
-    "Build end to end — backend, frontend, data, deploy — alone if you have to",
+    "Build end to end (backend, frontend, data, deploy), alone if you have to",
     "Fluent with today's AI coding tools; a working product in weeks, not quarters",
     "Product-minded: you sweat the user experience, not just the architecture",
     "Have shipped something real, even if nobody bought it"
    ],
    "we": [
-    "Distribution — the customers, communities and channels my companies already reach",
+    "Distribution: the customers, communities and channels my companies already reach",
     "The first ten conversations, opened for you"
    ]
   },
   {
    "name": "The Seller",
    "tag": "Sells",
-   "line": "Someone who moves people — through a pipeline they've run, or an audience that already listens.",
+   "line": "Someone who moves people, through a pipeline they've run or an audience that already listens.",
    "you": [
     "Can sell anything to anyone, and prove it with a pipeline you've run",
     "Or you make content people actually consume, with a distribution you already own",
@@ -71,13 +71,13 @@
     "Comfortable charging money from day one"
    ],
    "we": [
-    "Engineering — Algorizin's team builds the product while you sell",
+    "Engineering: Algorizin's team builds the product while you sell",
     "The operating playbook from companies that already sell to this audience"
    ]
   }
  ],
  "ideasTitle": "Three stages of an immigrant's life",
- "ideasIntro": "Every immigrant goes through three stages. You arrive — you study, adjust and find your footing. You rise — the first job, the career, maybe your own company. Then you thrive — you manage what you built. I've built a company for each stage, and each has ideas waiting for a co-founder. Tap a stage below and pick the ones that fit you.",
+ "ideasIntro": "Every immigrant goes through three stages. You arrive: you study, adjust and find your footing. You rise: the first job, the career, maybe your own company. Then you thrive: you manage what you built. I've built a company for each stage, and each has ideas waiting for a co-founder. Tap a stage below and pick the ones that fit you.",
  "stepsTitle": "How it works",
  "steps": [
   {
@@ -86,7 +86,7 @@
   },
   {
    "k": "A thirty-minute call",
-   "v": "We get to know each other: what you've built or sold, and where you are in the world. Then we brainstorm the idea together — yours or one of mine — and whether it's a company."
+   "v": "We get to know each other: what you've built or sold, and where you are in the world. Then we brainstorm the idea together, yours or one of mine, and whether it's a company."
   },
   {
    "k": "We map the gaps",
@@ -103,13 +103,13 @@
  "matchTitle": "You bring one thing. I bring the rest.",
  "matchIntro": "A company needs someone who builds and someone who sells. Bring either one. I cover what's missing, and everything around it.",
  "youBring": [
-  "You build — real products, shipped fast",
-  "Or you sell — a pipeline you've run, or an audience that listens"
+  "You build: real products, shipped fast",
+  "Or you sell: a pipeline you've run, or an audience that listens"
  ],
  "weBring": [
   "A brand trusted by 220,000+ students and the immigrants behind $13M+ in salaries",
-  "My three companies and their networks — HigherStudyAbroad, Algorizin, XenosWealth",
-  "Engineering or go-to-market, whichever you don't bring — Algorizin's team builds, or opens the first ten conversations",
+  "My three companies and their networks: HigherStudyAbroad, Algorizin and XenosWealth",
+  "Engineering or go-to-market, whichever you don't bring. Algorizin's team builds, or opens the first ten conversations",
   "Capital, when the numbers work",
   "A US company formed for you, with the immigration and visa questions handled",
   "Fifteen years of operating experience, the mistakes already made, and weekly working sessions with me on strategy, pricing and hiring"
