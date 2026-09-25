@@ -122,7 +122,6 @@ ul.shape li::before{content:"";position:absolute;left:0;top:.7em;width:12px;heig
 /* hero: the headline runs the full width; under it, the story beside a square
    portrait that takes half the row rather than a corner */
 .hero{margin-bottom:32px}
-.hero h1{max-width:20ch}
 .hero-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;margin-top:8px}
 .hero.solo .hero-row{grid-template-columns:minmax(0,1fr)}
 .wide .sect p{max-width:none}
@@ -170,7 +169,7 @@ ul.shape li::before{content:"";position:absolute;left:0;top:.7em;width:12px;heig
 .closing{border:1px solid var(--border-hairline);border-radius:16px;padding:32px;text-align:center;background:var(--surface);margin:0 0 32px}
 .closing h2{margin:0 0 8px;font-size:32px}
 .closing p{margin:0 auto 20px;font-size:16px;color:var(--ink-secondary)}
-@media (max-width:900px){.hero-row{grid-template-columns:1fr;gap:24px}.portrait{max-width:none;justify-self:stretch}.hero h1{max-width:none}.proof{grid-template-columns:1fr}}
+@media (max-width:900px){.hero-row{grid-template-columns:1fr;gap:24px}.portrait{max-width:none;justify-self:stretch;order:-1}.proof{grid-template-columns:1fr}}
 @media (max-width:640px){.journey{grid-template-columns:1fr}.nav .links{display:none}}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 72px}
 .pillar{padding:20px 0 0;border-top:1px solid var(--border-hairline)}
