@@ -122,7 +122,10 @@ ul.shape li::before{content:"";position:absolute;left:0;top:.7em;width:12px;heig
 /* hero: the headline runs the full width; under it, the story beside a square
    portrait that takes half the row rather than a corner */
 .hero{margin-bottom:32px}
-.hero-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;margin-top:8px}
+/* the headline fills its lines instead of balancing them, so it does not leave a
+   ragged quarter of the row empty; the text under it starts level with the photo */
+.hero h1{text-wrap:pretty;font-size:52px}
+.hero-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start;margin-top:8px}
 .hero.solo .hero-row{grid-template-columns:minmax(0,1fr)}
 .wide .sect p{max-width:none}
 [hidden]{display:none!important}
