@@ -1,0 +1,169 @@
+[
+ {
+  "group": "What this is",
+  "items": [
+   {
+    "q": "Is this a job? Am I applying to work for you?",
+    "a": "No. I am looking for a co-founder, not an employee. You would own a real share of a new company and carry half of it. There is no salary from me; we both get paid when the company does."
+   },
+   {
+    "q": "Are you an investor? An accelerator? An agency?",
+    "a": "None of those. I am the other co-founder. I put in my time, my team, the distribution my companies already have, and the company setup. I do not write you a cheque. If the company needs money later, we raise it together, like any two co-founders would."
+   },
+   {
+    "q": "Do I pay anything?",
+    "a": "No. Nothing to book the call, nothing to join, nothing to stay. Ever."
+   },
+   {
+    "q": "Who owns the idea?",
+    "a": "The ideas are public on purpose. If we do not end up working together, you are free to build anything you saw here. Once we co-found, the company owns the idea, and we both own the company. The same goes for an idea you bring."
+   },
+   {
+    "q": "Can I bring my own idea?",
+    "a": "Yes, please do. The call works the same way: we brainstorm it together and decide whether it is a company. Same ownership rule as above."
+   }
+  ]
+ },
+ {
+  "group": "Money and ownership",
+  "items": [
+   {
+    "q": "What is the equity split?",
+    "a": "Decided together on the call, once we see what each side puts in. Expect a real co-founder share, not an advisor's slice. The split reflects who does what, and it is written down before anyone starts."
+   },
+   {
+    "q": "Who pays for the first ninety days?",
+    "a": "Costs stay near zero by design. My team builds or sells, my companies open the doors, and the first customers pay. If money is needed for something, we decide together how to cover it."
+   },
+   {
+    "q": "Do I get a salary during the ninety days?",
+    "a": "No, and neither do I. Plan for that before you book. The first ninety days are about getting the company to pay for itself."
+   },
+   {
+    "q": "Does Algorizin's team work for free on the new company?",
+    "a": "For the first ninety days, yes. That is part of what I put in as a co-founder. After that, the company pays for what it uses, like any client would."
+   },
+   {
+    "q": "Whose company is it? Is it part of Algorizin?",
+    "a": "Yours and mine. A new US company, formed for this, not a subsidiary of Algorizin or any of my other companies. They help; they do not own it."
+   }
+  ]
+ },
+ {
+  "group": "Time and commitment",
+  "items": [
+   {
+    "q": "Is this full-time? Can I keep my job?",
+    "a": "Full-time is preferred. Part-time works if it is real: at least twenty hours a week on a fixed schedule that nothing else eats into. If you are employed today, we talk on the call about how and when you get to more."
+   },
+   {
+    "q": "How much of your time do I actually get?",
+    "a": "A weekly working session with me on strategy, pricing and hiring, plus my team day to day. I run three companies, so I am not beside you hour by hour. I bring the half you do not have and the doors you cannot open yet."
+   },
+   {
+    "q": "What happens after ninety days?",
+    "a": "If there is revenue, we decide together how big it gets and how to fund it. If there is not, we look at why, plainly, and either fix it or shake hands. Nobody owes anyone anything."
+   },
+   {
+    "q": "How many co-founders are you taking on at once?",
+    "a": "A handful, one per idea. Sixty ideas is the menu, not the headcount."
+   }
+  ]
+ },
+ {
+  "group": "Who can apply",
+  "items": [
+   {
+    "q": "Who gets preference?",
+    "a": "Founders living in the US come first. Immigrants come next; I built everything I have for them and I know their constraints. If you are outside the US and fit one of the ideas unusually well, book anyway and say so."
+   },
+   {
+    "q": "I am outside the US and have never been there. Does that work?",
+    "a": "It can. My team is in Bangladesh and I have run remote from day one. But US-based founders come first, so for you the bar is an exceptional fit for one specific idea, plus a clear overlap with Eastern time."
+   },
+   {
+    "q": "I am on an F-1 or H-1B visa. Can I legally co-found?",
+    "a": "There are paths for founders on F-1, OPT and H-1B, and I have been through them myself. I am not a lawyer. I work through the questions with you and bring in the immigration attorneys my companies already use when a filing is needed. Nothing here is legal advice."
+   },
+   {
+    "q": "I am not an engineer or a salesperson. I am a designer, a PM, an accountant. Is there room for me?",
+    "a": "A new company needs two things first: someone who builds and someone who sells. If you design or manage product and also ship, you are a builder. If you market, run a pipeline or own an audience, you are a seller. If you are neither yet, build or sell one small thing first, then come back."
+   },
+   {
+    "q": "I have never shipped or sold anything. Can I still book?",
+    "a": "If you are close, book and bring the thing you are working on. But the call goes much better with proof, even if nobody bought it."
+   }
+  ]
+ },
+ {
+  "group": "The ideas",
+  "items": [
+   {
+    "q": "Why are you giving these ideas away? If they are good, why have you not built them?",
+    "a": "There is one of me. I have sixty problems worth a company and no time to build them alone. Keeping them unbuilt costs the company that never exists. And an idea is only half of it; the other half is the person who runs it."
+   },
+   {
+    "q": "Where did the ideas come from?",
+    "a": "From a pool of nearly two thousand I collected and scored: search demand, market signals, and whether one of my companies already reaches the customer. Sixty survived that filter. The rest are mistakes I have already watched people make."
+   },
+   {
+    "q": "Many of these do not sound like they are for immigrants. Why are they here?",
+    "a": "The founder is the immigrant, not always the customer. The three stages describe the customer my companies know best: students arriving, professionals rising, established people managing what they built. A customs wait-time app sits under Arrive because that is who my company reaches."
+   },
+   {
+    "q": "Can two people pick the same idea?",
+    "a": "The first serious conversation gets it. If two strong people want the same one, I would rather introduce you to each other than turn one away."
+   },
+   {
+    "q": "Where is the real research? Market size, competitors?",
+    "a": "Each one-pager is short on purpose. The full research behind it (market, competitors, demand data, pricing) is shared after our first call, with the people I start working with."
+   },
+   {
+    "q": "What does \"open\" on each card mean?",
+    "a": "The idea is still available. When someone takes one, its card will say so."
+   }
+  ]
+ },
+ {
+  "group": "About me",
+  "items": [
+   {
+    "q": "Who are you? I do not know you.",
+    "a": "Siam Hossain. I came to the US as a student and built three companies for immigrants: <a href=\"https://higherstudyabroad.lovable.app/\" target=\"_blank\" rel=\"noopener\">HigherStudyAbroad</a>, <a href=\"https://www.algorizin.com/\" target=\"_blank\" rel=\"noopener\">Algorizin</a> and <a href=\"https://xenoswealth.com/\" target=\"_blank\" rel=\"noopener\">XenosWealth</a>. The rest is on <a href=\"https://www.linkedin.com/in/siamhossain/\" target=\"_blank\" rel=\"noopener\">LinkedIn</a>."
+   },
+   {
+    "q": "\"A hedge fund for immigrants who made it.\" What does that mean?",
+    "a": "XenosWealth is a wealth management firm: professionally managed investment funds for immigrant families and accredited investors in the US. It serves the third stage of the same life the other two companies serve. Details at <a href=\"https://xenoswealth.com/\" target=\"_blank\" rel=\"noopener\">xenoswealth.com</a>."
+   },
+   {
+    "q": "220,000 students, $13M in salaries. Says who?",
+    "a": "The 220,000+ are the students HigherStudyAbroad has guided and its community reaches. The $13M+ is the combined salaries of the immigrants Algorizin has placed in US jobs. Both are our own numbers from our own records."
+   },
+   {
+    "q": "Where are you based?",
+    "a": "New York, NY. My team works from Bangladesh. We run on Eastern time."
+   }
+  ]
+ },
+ {
+  "group": "The call",
+  "items": [
+   {
+    "q": "The button says \"Co-found with me\" but it opens a calendar. Am I committing to anything by booking?",
+    "a": "No. It is thirty minutes and both of us are deciding. You are committing to showing up with something you have built or sold, nothing more."
+   },
+   {
+    "q": "What happens on the call?",
+    "a": "We get to know each other: what you have built or sold, where you are in the world. Then we brainstorm one idea, yours or one of mine, and whether it is a company. No deck, no pitch."
+   },
+   {
+    "q": "What if I am not a fit?",
+    "a": "I tell you, plainly, with a reason. Sometimes the reason is timing, and I say that too."
+   },
+   {
+    "q": "Can I email instead of booking?",
+    "a": "The calendar is the fastest door, and I prefer it. Email works too: <a href=\"mailto:siam@algorizin.com\">siam@algorizin.com</a>. Quick questions are welcome in the comments of the post that brought you here."
+   }
+  ]
+ }
+]
